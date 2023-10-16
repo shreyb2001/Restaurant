@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage your account</title>
+
+    <!-- customs css -->
+    <link rel="stylesheet" href="/css/manage.css">
+</head>
+<body>
+    <header>
+        <h1>User DashBoard</h1>
+        <a href="/dashboard/{{user._id}}"><h2 style="color: black;">Back to Home ></h2></a>
+    </header>
+
+    <section>
+        <div class="header-container">
+            <div class="heading-content">
+                <h3><span>{{user.username}}</span></h3>
+                <h1 class="multiple-text"></h1>
+            </div>
+            <img src="{{path}}" alt="">
+        </div>
+    </section>
+
+    <section class="dashboard">
+        <div class="tabs">
+            <a href="#"><h3 class="account-tab">Account Details</h3></a>
+            <a href="#"><h3 class="booking-tab">Bookings</h3></a>
+            <a href="#"><h3 class="order-tab">Past Orders</h3></a>
+        </div>
+        <div class="account-details">
+            <p>User ID : {{user._id}}</p>
+            <p>Name : {{user.username}}</p>
+            <p>Email ID : {{user.email}}</p>
+            <p>Account Type : {{user.role}}</p>
+            <p>Number of Orders : {{Orders.length}}</p>
+        </div>
+
+        <div class="bookings">
+            <h3>-> Details of all your bookings :</h3>
+            {{#if bookings}}
+                {{#each bookings}}
+                    <div class="booking">
+                        <p>Booking ID : {{_id}}</p>
+                        <p>Name : {{user.username}}</p>
+                        <p>Phone Number : {{phoneNumber}}</p>
+                        <p>Date : {{date}}</p>
+                        <p>Time : {{time}}</p>
+                        <p>Number of Guest(s) : {{numberOfGuests}}</p>
+                        <p>Arrangements : {{arrangements}}</p>
+                    </div>
+                {{/each}}
+            {{else}}
+            <div class="booking">
+                <p>No Bookings available</p>
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="orders">
+            -> Here are your details of all the past orders
+            {{#if Orders}}
+                {{#each Orders}}
+                    <div class="order">
+                        <p>Order ID : {{_id}}</p>
+                        <p>Items ordered : 
+                            {{#each items}}
+                                <div class="item">
+                                    <p> -> Item ID : {{this._id}}</p>
+                                    <p>Item Name : {{this._itemName}}</p>
+                                    <p>Price : {{this.price}}</p>
+                                    <p>Number : {{this.number}}</p>
+                                    <p>Quantity : {{this.quantity}}</p>
+                                </div>
+                            {{/each}}
+                        </p>
+                        <p>Number of Items : {{numberOfItems}}</p>
+                        <p>Bill Amount : {{bill}}</p>
+                        <p>Payment : {{payment}}</p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="order">
+                    <p>No orders available</p>
+                </div>
+            {{/if}}
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

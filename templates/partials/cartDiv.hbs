@@ -1,0 +1,45 @@
+{{!-- show cart --}}
+    <div class="view-cart-div" >
+        <div class="bill-header">
+            <i class='bx bx-arrow-back' ></i>
+            <div class="bill-details">
+                <h2>{{#if numberOfItems}}{{numberOfItems}} items in Cart{{else}}0 items in Cart{{/if}}</h2>
+                <h3>{{#if bill}}You Pay: ₹ {{bill}}{{else}}You Pay: ₹ 0{{/if}}</h3>
+            </div>
+            <h4 class="edit-btn">Edit</h4>
+        </div>
+        <div class="cart-items">
+            {{#if cart}}
+                {{#each cart}}
+                    <div class="cart-item">
+                        <img src="/images/main_img.png" alt="">
+                        <div class="cart-item-details">
+                            <h3>{{itemName}}</h3>
+                            <h4>{{quantity}}</h4>
+                            <div class="quantity-button">
+                                <h5>
+                                    <i class='bx bx-trash deleteItem {{_id}} {{price}}'></i>
+                                </h5>
+                                <h5>{{number}}</h5>
+                                <h5>
+                                    <i class='bx bx-plus increaseQty {{_id}} {{number}}'></i>
+                                </h5>
+                            </div>
+                        </div>
+                        <h4>₹ {{price}}</h4>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="cart-item">
+                    <h2>Cart is empty</h2>
+                </div>
+            {{/if}}
+        </div>
+        <div class="bill-footer">
+            {{#if user}}
+                <a href="/dashboard/order" style="color: #fff;"><h3>PLACE ORDER</h3></a>
+            {{else}}
+                <h3>Kindly Log in first</h3>
+            {{/if}}
+        </div>
+    </div>

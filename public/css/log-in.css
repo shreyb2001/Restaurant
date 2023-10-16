@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins' , sans-serif;
+}
+
+:root {     
+    --bg-color: #94937c;
+    --second-bg-color: #9a4242dd;
+    --text-color: #421818e1;
+    --main-color: #81785a;
+}
+
+body{
+    height: 100vh;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(../images/bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container{
+    position: relative;
+    max-width: 40%;
+    background: var(--bg-color);
+    padding: 28px 32px;
+    overflow: hidden;
+    border-radius: 18px;
+    transition: 0.6s ease-out;
+    overflow: auto;
+}
+
+.container .heading{
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    border-radius: 18px;
+}
+
+.login-box , .content-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-picture-conatiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-picture-conatiner img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-picture-conatiner img:hover{
+    cursor: pointer;
+}
+
+.nameBoxes{
+    display: flex;
+}
+
+.nameBoxes input:nth-of-type(2){
+    margin-left: 8px;
+}
+
+.login-box input , .content-box input{
+    color: var(--text-color);
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 10px 32px ;
+    border: 1px solid var(--third-bg-color);
+    border-radius: 18px;
+    margin-bottom: 6px;
+}
+
+.login-box input::placeholder , .content-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--second-text-color);
+}
+
+.login-box button , .content-box button{
+    display: inline-block;
+    width: 100%;
+    padding: 10px 32px 10px 32px;
+    color: #fff;
+    background: var(--second-bg-color);
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-box button:hover , .content-box button:hover{
+    color: var(--bg-color);
+    background: var(--text-color);
+}
+
+.link{
+    display: flex;
+    margin: 16px 0 0 0 ;
+    align-items: center;
+    justify-content: center;
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 200,
+    'GRAD' 200,
+    'opsz' 24
+}
+
+.material-symbols-outlined{
+    padding: 0 2px;
+}
+
+a{
+    color: var(--second-text-color);
+    font-weight: 500;
+}
+
+.error-message , .success-message{
+    text-align: center;
+    color: var(--second-text-color);
+    margin-bottom: 10px;
+    padding: 3px;
+    background: #f99;
+    border-radius: 18px;
+}
+
+.success-message{
+    margin: 10px 0;
+    background: #9f9;
+}
+
+
+
+
+

@@ -1,0 +1,108 @@
+                {{#each users}}
+                    <div class="user-info">
+                        <img src="{{splitPath profilePictureURL}}" alt="">
+                        <div class="user-details">
+                            <ul>
+                                <li><p>Username : {{username}}</p></li>
+                                <li><p>User ID : {{_id}}</p></li>
+                                <li><p>Email : {{email}}</p></li>
+                                <li><p>Account Type : {{role}}</p></li>
+                                <li><p>Cart Items : 
+                                    <div class="sub-items">
+                                        {{#if cart}}
+                                            {{#each cart}}
+                                                <div class="sub-items">
+                                                    <ul>
+                                                        <li><p>Item ID : {{this._id}}</p></li>
+                                                        <li><p>Item Name : {{this.itemName}}</p></li>
+                                                        <li><p>Item Price : {{this.price}}</p></li>
+                                                        <li><p>Half/Full? : {{this.quantity}}</p></li>
+                                                        <li><p>Quantity : {{this.number}}</p></li>
+                                                    </ul>
+                                                </div>
+                                            {{/each}}
+                                        {{else}}
+                                            <ul>
+                                                <li><p>Cart is empty</p></li>
+                                            </ul>
+                                        {{/if}}
+                                    </div>
+                                </p></li>
+                                <li><p>Bookings : 
+                                    {{#if bookings}}
+                                        {{#each bookings}}
+                                            <div class="sub-items">
+                                                <ul>
+                                                    <li><p>Booking ID : {{this._id}}</p></li>
+                                                    <li><p>Date of reservation : {{this.date}}</p></li>
+                                                    <li><p>Expected Time : {{this.time}}</p></li>
+                                                    <li><p>Phone Number : {{this.phoneNumber}}</p></li>
+                                                    <li><p>Number of guest(s) : {{this.numberOfGuests}}</p></li>
+                                                    <li><p>Requirements? : {{this.arrangements}}</p></li>
+                                                </ul>
+                                            </div>
+                                        {{/each}}
+                                    {{else}}
+                                        <div class="sub-items">
+                                            <ul>
+                                                <li><p>No bookings available</p></li>
+                                            </ul>
+                                        </div>
+                                    {{/if}}
+                                </p></li>
+                                <li><p>Orders : 
+                                    {{#if orders}}
+                                        {{#each orders}}
+                                            <div class="sub-items">
+                                                <ul>
+                                                    <li><p>Order ID : {{this._id}}</p></li>
+                                                    <li><p>Bill : {{this.bill}}</p></li>
+                                                    <li><p>Payment : {{this.payment}}</p></li>
+                                                    <li><p>Phone Number : {{this.phoneNumber}}</p></li>
+                                                    <li><p>Items Ordered : 
+                                                        {{#each this.items}}
+                                                            <div class="sub-items">
+                                                                <ul>
+                                                                    <li><p>Item ID : {{this._id}}</p></li>
+                                                                    <li><p>Item Name : {{this.itemName}}</p></li>
+                                                                    <li><p>Item Price : {{this.price}}</p></li>
+                                                                    <li><p>Half/Full? : {{this.quantity}}</p></li>
+                                                                    <li><p>Quantity : {{this.number}}</p></li>
+                                                                </ul>
+                                                            </div>
+                                                        {{/each}}
+                                                    </p></li>
+                                                </ul>
+                                            </div>
+                                        {{/each}}
+                                    {{else}}
+                                        <div class="sub-items">
+                                            <ul>
+                                                <li><p>No orders available</p></li>
+                                            </ul>
+                                        </div>
+                                    {{/if}}
+                                </p></li>
+                                <li><p>Comments : 
+                                    {{#if comments}}
+                                        {{#each comments}}
+                                            <div class="sub-items">
+                                                <ul>
+                                                    <li><p>Comment ID : {{this._id}}</p></li>
+                                                    <li><p>Email : {{this.email}}</p></li>
+                                                    <li><p>Content : {{this.content}}</p></li>
+                                                </ul>
+                                            </div>
+                                        {{/each}}
+                                    {{else}}
+                                        <div class="sub-items">
+                                            <ul>
+                                                <li><p>No comments available</p></li>
+                                            </ul>
+                                        </div>
+                                    {{/if}}
+                                </p></li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/each}}

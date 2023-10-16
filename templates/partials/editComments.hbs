@@ -1,0 +1,34 @@
+<div class="edit-comments">
+    {{#if users}}
+        {{#each users}}
+            <div class="comment">
+                <img src="{{splitPath profilePictureURL}}" alt="dgdfgdf">
+                <div class="info">
+                    <h3>User ID : {{username}}</h3>
+                    <h3>Email : {{email}}</h3>
+                    <h3>Comments : 
+                        <ul>
+                            {{#if comments}}
+                                {{#each comments}}
+                                    <li>
+                                        <form action="/dashboard/admin/{{this._id}}/editComments?" method="POST">
+                                            <input type="text" name="content" placeholder="{{this.content}}">
+                                            <input type="submit" value="Edit">
+                                        </form>
+                                        <form action="/dashboard/admin/{{this._id}}/deleteComments?" method="POST">
+                                            <input type="submit" value="Delete">
+                                        </form>
+                                    </li>
+                                {{/each}}
+                            {{else}}
+                                <li><h5>No comments available</h5></li>
+                            {{/if}}
+                        </ul>
+                    </h3>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+
+    {{/if}}
+</div>

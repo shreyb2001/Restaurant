@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website</title>
+
+    <!-- boxicons css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- google icons css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- header design -->
+    <header class="header">
+        <a href="#" class="logo"><img class="logo-img" src="/images/logo.png" alt=""></a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#specialities">Specilaties</a>
+            <a href="#gallery">Gallery</a>
+            <!-- if user exists , book table and review nav links will appear otherwise not -->
+            {{#if user}}
+                <a href="#book">Book table</a> 
+                <a href="#review">Review</a> 
+            {{else}}{{/if}}
+        </nav>
+
+        <div class="shop">
+            <i class='bx bx-heart wishlist'></i>
+            <a href="#"><i class='bx bx-food-menu'></i></a>
+            <i class='bx bx-cart-alt cart'></i>
+            <i class='bx bx-brightness-half nightscape'></i>
+            <i class='bx bx-user-circle user' id="dropdownButton"></i>
+        </div>
+
+        <!-- The dropdown box -->
+        {{>userDropdown}}
+    </header>
+
+    {{>menuDiv}}
+
+    {{>cartDiv}}
+
+    <!-- home section design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Get Fresh <span>Food</span></h1>
+            <h3>in a <span class="multiple-text"></span></h3>
+            <p style="margin-top: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia omnis! Mollitia doloremque voluptate aperiam illo alias vel maiores sunt, laboriosam voluptatem maxime dolores illum aut tempora fugit facere vero?</p>
+
+            <div class="social-media"> 
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <a href="#" class="btn specialbtn">Today's special</a>
+        </div>
+
+        <div class="home-img">
+            <img src="/images/main_img.png" alt="">
+        </div>
+
+        <div class="special">
+            <div class="overlay-content">
+                <!-- Your content goes here -->
+                <h2>Special Menu</h2>
+                {{#if specialMenu}}
+                    <div class="special-menu-items">
+                        <div class="special-menu-item">
+                            <h2>Item Name</h2>
+                            <h2>Half Prices</h2>
+                            <h2>Full Prices</h2>
+                        </div>
+                        {{#each specialMenu}}
+                            <div class="special-menu-item" >
+                                <h3>{{itemName}}</h3>
+                                {{#if halfPrice}}
+                                    <a href="#" class="add-order {{_id}} {{halfPrice}}">{{halfPrice}}</a>
+                                {{else}}
+                                    <p>N.A.</p>
+                                {{/if}}
+                                <a href="#" class="add-order {{_id}} {{fullPrice}}">{{fullPrice}}</a>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <h2>No data available</h2>
+                {{/if}}
+                <a href="#" class="btn close">Close</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section design -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="/images/Food-Plate.png" alt="">
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading"><span>About </span>us</h2>
+            <h3 style="margin-top: 20px;">Why choose us?</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam soluta dicta ullam dolores corporis aliquam maiores accusamus expedita recusandae, saepe aspernatur et nisi beatae assumenda explicabo nulla? Iste, quis. Nostrum!</p>
+
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </section>
+
+    <!-- specialities setion design -->
+    <section class="specialities" id="specialities" >
+        <h2 class="heading">Our <span>specialities</span></h2>
+
+        <div class="specialities-container">
+            <div class="specialities-box">
+                <img src="/images/buger.jpg" alt="" srcset="">
+                <h3><span>Burger</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p class="ratings">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+                <h3>$20.00</h3>
+
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/pasta.jpg" alt="" srcset="">
+                <h3><span>Pasta</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p class="ratings">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+                <h3>$20.00</h3>
+
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/lasagna.webp" alt="">
+                <h3><span>Lasangna</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/chocolate_Drink.jpg" alt="">
+                <h3><span>Drinks</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/pizza.jpg" alt="">
+                <h3><span>Pizza</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/Hot_dog.jpg" alt="">
+                <h3><span>Hot Dog</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+        
+            <div class="specialities-box">
+                <img src="/images/ice_cream.jpg" alt="">
+                <h3><span>Ice Cream</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/Spanchi.jpg" alt="">
+                <h3><span>Spanchi</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+
+            <div class="specialities-box">
+                <img src="/images/sandwich.jpg" alt="">
+                <h3><span>Sandwich</span></h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi in laboriosam, obcaecati unde voluptas dolore earum at autem ratione veniam magnam libero consequatur eligendi magni enim exercitationem? Iure, tenetur nihil!</p>
+                <p>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half' ></i>
+                </p>
+
+                <h3>$20.00</h3>
+                <a href="#" class="btn">Order now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- gallery section design -->
+    <section class="gallery" id="gallery">
+        <h2 class="heading">Our <span>Gallery</span></h2>
+
+        <div class="gallery-container">
+            <div class="gallery-box">
+                <img src="/images/gallary_1.jpg" alt="">
+                <div class="gallery-layer">
+                    <h4><span>Food</span></h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                    <a href="#"><i>Order now</i></a>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="/images/gallary_2.jpg" alt="">
+                <div class="gallery-layer">
+                    <h4><span>Food</span></h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                    <a href="#"><i>Order now</i></a>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="/images/gallary_3.jpg" alt="">
+                <div class="gallery-layer">
+                    <h4><span>Food</span></h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                    <a href="#"><i>Order now</i></a>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="/images/gallary_4.jpg" alt="">
+                <div class="gallery-layer">
+                    <h4><span>Food</span></h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                    <a href="#"><i>Order now</i></a>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="/images/gallary_5.jpg" alt="">
+                <div class="gallery-layer">
+                    <h4><span>Food</span></h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                    <a href="#"><i>Order now</i></a>
+                </div>
+            </div>
+
+            <div class="gallery-box">
+                <img src="/images/gallary_6.jpg" alt="">
+                <div class="gallery-layer">
+                    <h4><span>Food</span></h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+                    <a href="#"><i>Order now</i></a>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    {{#if user}}
+            <!-- book section design -->
+            {{>bookUs}}
+
+            {{!-- review section design --}}
+            {{>reviewUs}}
+    {{else}}{{/if}}
+
+    <!-- footer design -->
+    <footer class="footer change">
+        <div class="footer-text">
+            <p>Copyright &copy; 2023 by Shrey | All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="/js/client.js"></script>
+
+</body>
+</html>

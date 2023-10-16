@@ -1,0 +1,22 @@
+            <div class="update-specials">
+                <div class="menu-items">
+                    {{#each menus}}
+                        <form action="/dashboard/admin/{{_id}}/addSpecial?" method="POST" class="menu-item">
+                            <p>{{itemName}}</p>
+                            <input type="Submit" value="Add" >
+                        </form>
+                    {{/each}}
+                </div>
+                <div class="special-items">
+                    {{#if special}}
+                        {{#each special}}
+                                <form  action="/dashboard/admin/{{_id}}/removeSpecial?" method="POST" class="menu-item">
+                                    <h3>{{itemName}}</h3>
+                                    <input type="Submit" value="Remove">
+                                </form>
+                        {{/each}}
+                    {{else}}
+                        <h3>Nothing in special</h3>
+                    {{/if}}
+                </div>
+            </div>

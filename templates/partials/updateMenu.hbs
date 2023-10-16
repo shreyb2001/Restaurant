@@ -1,0 +1,42 @@
+ <div class="update-menu">
+                <div class="update-tabs">
+                    <a href="#" class="add">Add items to menu</a>
+                    <a href="#" class="update">Update menu items</a>
+                </div>
+                <div class="add-items">
+                    <form action="/dashboard/admin/{{admin._id}}/addToMenu?" method="POST">
+                        <input type="text" name="itemName" placeholder="Item Name..." required>
+                        <input type="text" name="halfPrice" placeholder="Half Price">
+                        <input type="text" name="fullPrice" placeholder="Full Price..." required>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+                <div class="update-menu-items">
+                    <div class="select-items">
+                        {{#each menus}}
+                            <div class="select-item">
+                                <form action="/dashboard/admin/{{_id}}/updateItem?" method="GET" class="menu-item">
+                                    <p>{{itemName}}</p>
+                                    <input type="Submit" value="Update" >
+                                </form>
+                                <form action="/dashboard/admin/{{_id}}/deleteItem?" method="POST" class="menu-item">
+                                        <input type="Submit" value="Delete">
+                                </form>
+                            </div>
+                        {{/each}}
+                    </div>
+
+                    <div class="update-form">
+                        <form action="/dashboard/admin/{{update._id}}/updateItem?" method="POST">
+                            <p>Item ID : {{update._id}}</p>
+                            <input type="text" name="itemName" placeholder="Item Name : {{update.itemName}}" value="{{update.itemName}}">
+                            <input type="text" name="halfPrice" placeholder="Half Price : {{update.halfPrice}}" value="{{update.halfPrice}}">
+                            <input type="text" name="fullPrice" placeholder="Full Price : {{update.fullPrice}}" value="{{update.fullPrice}}">
+
+                            <input type="Submit" value="Update" >
+                        </form>
+                    </div>
+                </div>
+            </div>

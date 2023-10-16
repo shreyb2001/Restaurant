@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/adminDashboard.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="">
+        <p>Admin Dashboard</p>
+        <p><a href="/dashboard/{{admin._id}}?" >Back to Home ></a></p>
+    </header>
+
+    <section class="dashboard">
+        <div class="left-container">
+            <div class="tabs">
+                <a href="/dashboard/admin/{{admin._id}}/dashboard?"><p class="dash">Dashboard</p></a>
+                <a href="/dashboard/admin/{{admin._id}}/userInfo?"><p class="userInfo">User Info.</p></a>
+                <a href="/dashboard/admin/{{admin._id}}/updateSpecial?"><p class="updateSpecials">Update Specials</p></a>
+                <a href="/dashboard/admin/{{admin._id}}/updateItem?"><p class="updateMenu">Update Menu</p></a>
+                <a href="/dashboard/admin/{{admin._id}}/editComments?"><p class="editComments">Edit Comments</p></a>
+            </div>
+        </div>
+        <div class="right-container">
+            {{#if admin}}   
+                <div class="admin-dashboard">
+                    <div class="admin-display">
+                        <img src="{{splitPath admin.profilePictureURL}}" alt="">
+                        <div class="admin-heading">
+                            <h1>Welcome</h1>
+                            <h3>Shrey <span>Bhardwaj</span></h3>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}  
+
+            <div class="alphabeta">
+                {{#if users}}
+                    {{>userInfo}}
+                {{else}}
+                    <div class="user-info">
+                        <h3>No Users available</h3>
+                    </div>
+                {{/if}}
+            </div>
+
+            {{>updateSpecials}}
+
+            {{>updateMenu}}
+
+            {{>editComments}}
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

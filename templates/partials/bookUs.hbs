@@ -1,0 +1,16 @@
+<section class="book" id="book">
+    <h2 class="heading">Book <span>Us!</span></h2>
+
+    <form action="/dashboard/book/:id" method="POST">
+        <div class="input-box">
+            <input type="date" placeholder="Book us for the date" name="date">
+            <input type="time" placeholder="Time of arriving?" name="time">
+        </div>
+        <div class="input-box">
+            <input type="number" placeholder="Mobile Number" name="phoneNumber">
+                <input type="number" placeholder="Number of Guest(s)" name="numberOfGuests">
+        </div>
+            <textarea name="arrangements" id="" cols="30" rows="10" placeholder="Any Prior Notice?" ></textarea>
+            <input type="submit" value="Book Us" class="btn">
+    </form>
+</section>

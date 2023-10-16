@@ -1,0 +1,27 @@
+<section class="review" id="review">
+    <h2 class="heading">Review <span>Us!</span></h2>
+    <form action="/dashboard/comments/{{user._id}}" method="POST">
+        <textarea name="review" id="" cols="20" rows="3" placeholder="Give us your review here!" ></textarea>
+        <button type="submit" class="btn"><i style="font-size: 3rem;" class='bx bx-send'></i></button>
+    </form>
+    {{#if comments}}
+        <div class="comments">
+            {{#each comments}}
+                <div class="comment">
+                    <img src="{{DisplayPicturePath}}" alt="">
+                    <div class="comment-content">
+                        <p>{{content}}</p>
+                        {{#if updated}} 
+                            <small>(this comment was updated by admin!)</small>
+                        {{else}}{{/if}}
+                        <h6>-by : {{email}}</h6>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="comments">
+            <h4>No comments available</h4>
+        </div>
+    {{/if}}
+</section>

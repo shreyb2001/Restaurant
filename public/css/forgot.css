@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins' , sans-serif;
+}
+
+:root {
+    --bg-color: #b2b19f;
+    --second-bg-color: #9a4242dd;
+    --text-color: #421818e1;
+    --main-color: #b2a783;
+}
+
+body{
+    height: 100vh;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(../images/bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container{
+    position: relative;
+    max-width: 50%;
+    background: var(--main-color);
+    padding: 28px 32px;
+    overflow: hidden;
+    border-radius: 18px;
+    transition: 0.6s ease-out;
+}
+
+.container .heading{
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    border-radius: 18px;
+}
+
+.container .message-heading{
+    text-align: center;
+    padding: 18px 0;
+    color: var(--text-color);
+}
+
+.content-box{
+    width: 100%;
+}
+
+.content-box input{
+    color: var(--text-color);
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 10px 32px ;
+    border: 1px solid var(--bg-color);
+    border-radius: 18px;
+    margin-bottom: 6px;
+}
+
+.content-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--second-text-color);
+}
+
+.content-box button{
+    padding: 10px 32px 10px 32px;
+    color: #fff;
+    background:var(--second-bg-color);
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    float: right;
+}
+
+.content-box button:nth-of-type(1){
+    margin-left: 8px;
+}
+
+.content-box button:hover{
+    color: var(--main-color);
+    background: var(--text-color);
+}
+
+.error-message , .success-message{
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    padding: 3px;
+    background: #f99;
+    border-radius: 18px;
+}
+
+.success-message{
+    margin: 10px 0;
+    background: #9f9;
+}

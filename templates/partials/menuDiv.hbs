@@ -1,0 +1,55 @@
+{{!-- show - menu div --}}
+    <div class="show-menu-div">
+        <div class="close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>     
+        </div>
+        <div class="content">
+            <h1>Our Specilaties</h1>
+            {{#if menuItems}}
+            <ul>
+                <li><h2>Name...</h2><h2>Half Qty</h2><h2>Full Qty</h2><a href="#" class="add-order"></a></li>
+                {{#each menuItems}}
+                    {{#if halfPrice}}
+                    <li class="{{_id}}">
+                        <h3>{{itemName}}</h3>
+                        <a href="#" class="add-order {{_id}} {{halfPrice}}"><h3>{{halfPrice}}</h3></a>
+                        <a href="#" class="add-order {{_id}} {{fullPrice}}"><h3>{{fullPrice}}</h3></a>
+                        <a href="#" class="add-order {{_id}}">Add</a>
+                    </li>
+                    {{else}}
+                    <li class="{{_id}}">
+                        <h3>{{itemName}}</h3>
+                        <h3>N.A.</h3>
+                        <a href="#" class="add-order {{_id}} {{fullPrice}}"><h3>{{fullPrice}}</h3></a>
+                        <a href="#" class="add-order {{_id}}">Add</a>
+                    </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            {{else}}
+                <ul>
+                    <li><h2>No data available</h2>
+                </ul>
+            {{/if}}
+        </div>
+    
+        <div class="bottom">
+            <a href="#" class="cart-link">
+                <h4 class="qty">
+                    {{#if numberOfItems}}
+                        {{numberOfItems}} items
+                    {{else}}
+                        0 items
+                    {{/if}}
+                </h4>
+                <i class='bx bx-cart-alt cartBtn' ></i>     
+                {{#if user}}
+                    <h4>View Cart ></h4>
+                {{else}}
+                    <h4>Kindly Log in first!</h4>
+                {{/if}}
+            </a>
+        </div>
+    </div>

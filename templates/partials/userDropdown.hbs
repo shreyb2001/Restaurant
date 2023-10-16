@@ -1,0 +1,71 @@
+{{#if user}}
+             <div class="dropdown" id="dropdownContent">
+                <div class="account">
+                        <div class="account-details">
+                            <img src="{{path}}" alt="hghfhgf">
+                        <div class="account-name">
+                            <h3>{{user.username}}</h3>
+                            <h4>{{user.email}}</h4>
+                        </div>
+                    </div>
+                    <div class="manage-account">
+                        <a href="/dashboard/manage/{{user._id}}?accountDetails">
+                            <h3>Manage your Foodie account</h3>
+                        </a>
+                    </div>
+                    <div class="food">
+                        <a href="/dashboard/manage/{{user._id}}?bookings" class="view-menu">
+                            <span class="material-symbols-outlined">
+                                auto_stories
+                            </span>
+                            <h3>View Bookings</h3>
+                        </a>
+                    </div>
+                    <div class="food">
+                        <a href="/dashboard/manage/{{user._id}}?orders">
+                            <span class="material-symbols-outlined">
+                            receipt_long
+                            </span>
+                            <h3>View past orders</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="sign-out">
+                    <a href="/logout">
+                        <span class="material-symbols-outlined">
+                            logout
+                        </span>
+                        <h3>
+                            Log out of your account
+                        </h3>
+                    </a>
+                </div>
+            </div> 
+        {{else}}
+             <div class="dropdown log" id="dropdownContent">
+                <div class="account">
+                        <div class="log-in">
+                            <img src="/images/Default-Profile-Picture-PNG-Free-Download.png" alt="">
+                            <a href="/login"><h2>Log in</h2></a>
+                        </div>
+                        <div class="sign-up">
+                            <a href="/signup">
+                                <span class="material-symbols-outlined">person_add</span>
+                                <p>.</p>
+                                <h3>Sign up?</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="/forgot">
+                            <span class="material-symbols-outlined">
+                                lock
+                            </span>
+                            <p>.</p>
+                            <h3>
+                                Forgout password?
+                            </h3>
+                        </a>
+                    </div> 
+            </div> 
+        {{/if}}
